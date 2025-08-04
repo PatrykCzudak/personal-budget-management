@@ -1,12 +1,13 @@
-# 🐍 Aplikacja Budżetowa Python FastAPI
+# 🐍 Aplikacja budżetowa w Pythonie (FastAPI)
 
-## ✨ Kompletna implementacja 
+## ✨ Kompletna implementacja
 
-Aplikacja zarządzania budżetem osobistym przepisana z Node.js/Express na **Python FastAPI** z modułową architekturą i całkowicie nowym backendem.
+Aplikacja do zarządzania budżetem osobistym przepisana z Node.js/Express na **Python FastAPI**.
+Projekt posiada modułową architekturę oraz całkowicie nowy backend.
 
-## 🏗️ Architektura Backend
+## 🏗️ Architektura backendu
 
-### Struktura modułowa Python FastAPI
+### Struktura modułowa FastAPI
 
 ```
 backend/
@@ -16,7 +17,7 @@ backend/
 ├── schemas.py           # Walidacja Pydantic dla API
 ├── requirements.txt     # Zależności Python
 ├── routers/            # Rozdzielone endpointy API
-│   ├── categories.py   # CRUD kategorii budżetowych  
+│   ├── categories.py   # CRUD kategorii budżetowych
 │   ├── incomes.py      # Zarządzanie przychodami
 │   ├── expenses.py     # Wydatki z filtrowaniem
 │   ├── investments.py  # Portfel inwestycyjny
@@ -30,24 +31,24 @@ backend/
 
 ## 🚀 Uruchomienie aplikacji
 
-### Metoda 1: Automatyczny skrypt
+### Metoda 1: automatyczny skrypt
 ```bash
 cd aplikacja_python
 python run_local.py
 ```
 
-### Metoda 2: Ręczne uruchomienie
+### Metoda 2: ręczne uruchomienie
 
-**Backend Python FastAPI:**
+**Backend (Python FastAPI):**
 ```bash
 cd aplikacja_python/backend
 pip install -r requirements.txt
 python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-**Frontend React:**
+**Frontend (React):**
 ```bash
-cd aplikacja_python/frontend  
+cd aplikacja_python/frontend
 npm install
 npm run dev -- --port 3000
 ```
@@ -58,81 +59,81 @@ npm run dev -- --port 3000
 - **Backend API**: http://localhost:8000
 - **Dokumentacja API**: http://localhost:8000/docs
 
-## ⚙️ Kluczowe różnice vs Node.js
+## ⚙️ Kluczowe różnice w porównaniu z Node.js
 
 | Aspekt | Node.js/Express | Python FastAPI |
-|--------|----------------|----------------|  
+|--------|----------------|----------------|
 | **Język** | TypeScript | Python |
 | **Framework** | Express.js | FastAPI |
 | **ORM** | Drizzle | SQLAlchemy |
 | **Walidacja** | Zod | Pydantic |
 | **Struktura** | Monolityczne routy | Modularne routery |
-| **Typy** | TypeScript | Python type hints |
-| **Auto docs** | Brak | Swagger/OpenAPI |
+| **Typowanie** | TypeScript | Wskazówki typów w Pythonie |
+| **Dokumentacja** | Brak | Swagger/OpenAPI |
 
-## 🔧 Moduły Backend
+## 🔧 Moduły backendu
 
 ### 1. **Database (database.py)**
-- PostgreSQL połączenie z Replit DATABASE_URL
-- Automatyczne tworzenie tabel
-- Session management dla SQLAlchemy
+- połączenie z PostgreSQL dzięki zmiennej środowiskowej `DATABASE_URL`
+- automatyczne tworzenie tabel
+- zarządzanie sesjami SQLAlchemy
 
-### 2. **Models (models.py)** 
-- SQLAlchemy ORM z UUID primary keys
-- DECIMAL typy dla kwot finansowych
-- Relacje między tabelami
+### 2. **Models (models.py)**
+- modele ORM SQLAlchemy z kluczami głównymi UUID
+- typ `DECIMAL` do przechowywania kwot finansowych
+- relacje pomiędzy tabelami
 
 ### 3. **Schemas (schemas.py)**
-- Pydantic modele dla request/response
-- Automatyczna walidacja danych
-- Type safety dla API
+- modele Pydantic dla zapytań i odpowiedzi
+- automatyczna walidacja danych
+- bezpieczeństwo typów dla API
 
 ### 4. **Routers**
-- **Categories**: Kategorie z budżetami i kolorami
-- **Incomes**: Przychody (miesięczne, jednorazowe)
-- **Expenses**: Wydatki z filtrowaniem po dacie
-- **Investments**: Portfel z Yahoo Finance cenami
-- **Savings**: Cele oszczędnościowe z progressem
-- **AI**: Analiza portfela, budżetu, VaR calculations
-- **Prices**: Yahoo Finance search i aktualizacje
+- **Categories**: kategorie budżetowe z limitami i kolorami
+- **Incomes**: różne typy przychodów
+- **Expenses**: wydatki z filtrowaniem po dacie
+- **Investments**: portfel z cenami Yahoo Finance
+- **Savings**: cele oszczędnościowe z progresem
+- **AI**: analiza portfela i budżetu, kalkulacje VaR
+- **Prices**: wyszukiwanie i aktualizacja danych z Yahoo Finance
 
 ### 5. **Services**
-- **PriceService**: Automatyczne aktualizacje co 15 min
-- **AIService**: Analiza finansowa i rekomendacje
+- **PriceService**: automatyczne aktualizacje co 15 minut
+- **AIService**: analizy finansowe i rekomendacje
 
 ## 📊 Funkcjonalności
 
 ### Zarządzanie budżetem
-- ✅ Kategorie z limitami i kolorami
-- ✅ Przychody różnych typów
-- ✅ Wydatki z przypisaniem do kategorii  
-- ✅ Filtrowanie po miesiącach i latach
+- ✅ kategorie z limitami i kolorami
+- ✅ różne typy przychodów
+- ✅ wydatki przypisane do kategorii
+- ✅ filtrowanie po miesiącach i latach
 
 ### Portfel inwestycyjny
-- ✅ Akcje, ETF, obligacje
-- ✅ Automatyczne ceny z Yahoo Finance
-- ✅ Kalkulacja zysków/strat
-- ✅ Wykresy alokacji
+- ✅ akcje, ETF-y i obligacje
+- ✅ automatyczne ceny z Yahoo Finance
+- ✅ kalkulacja zysków i strat
+- ✅ wykresy alokacji
 
-### Analiza ryzyka  
+### Analiza ryzyka
 - ✅ Value at Risk (VaR) 95% i 99%
 - ✅ Expected Shortfall
-- ✅ Metryki ryzyka portfela
-- ✅ Stress testing scenariusze
+- ✅ metryki ryzyka portfela
+- ✅ scenariusze stress testów
 
 ### Asystent AI
-- ✅ Analiza portfela i rekomendacje
-- ✅ Analiza budżetu i optymalizacja  
-- ✅ Niestandardowe zapytania
-- ✅ Inteligentne insights
+- ✅ analiza portfela i rekomendacje
+- ✅ analiza budżetu i optymalizacja
+- ✅ niestandardowe zapytania
+- ✅ inteligentne insighty
 
 ## 🗄️ Baza danych
 
-Używa tej samej bazy PostgreSQL co wersja Node.js z automatycznym tworzeniem tabel:
+Wykorzystywana jest ta sama baza PostgreSQL co w wersji Node.js, z automatycznym tworzeniem tabel:
 
 ```sql
 categories     -- kategorie budżetowe
-incomes        -- źródła przychodów  
+incomes        -- źródła przychodów
 expenses       -- wydatki osobiste
 investments    -- pozycje portfela
 savings_goals  -- cele oszczędnościowe
@@ -140,30 +141,31 @@ savings_goals  -- cele oszczędnościowe
 
 ## 🌍 Integracje
 
-- **Yahoo Finance**: Ceny akcji w czasie rzeczywistym
-- **PostgreSQL**: Trwałe przechowywanie w Replit
-- **APScheduler**: Automatyczne aktualizacje co 15 minut
+- **Yahoo Finance**: ceny akcji w czasie rzeczywistym
+- **PostgreSQL**: trwałe przechowywanie w Replit
+- **APScheduler**: automatyczne aktualizacje co 15 minut
 
 ## 📚 Dokumentacja API
 
-Po uruchomieniu backendu dostępna pod: http://localhost:8000/docs
-
-Automatyczna dokumentacja Swagger z możliwością testowania wszystkich endpointów.
+Po uruchomieniu backendu dokumentacja jest dostępna pod adresem:
+http://localhost:8000/docs.  
+Swagger umożliwia testowanie wszystkich endpointów bezpośrednio z przeglądarki.
 
 ## ✅ Status implementacji
 
-- ✅ **Backend FastAPI**: Kompletnie przepisany z modułową architekturą
-- ✅ **Wszystkie endpointy**: Categories, Incomes, Expenses, Investments, Savings, AI, Prices  
-- ✅ **Database integration**: SQLAlchemy z PostgreSQL
-- ✅ **Frontend configuration**: React skonfigurowany dla Python API
-- ✅ **Yahoo Finance**: Automatyczne aktualizacje cen
-- ✅ **AI Analysis**: Portfolio i budget analysis z VaR calculations
+- ✅ **Backend FastAPI**: kompletnie przepisany i modułowy
+- ✅ **Wszystkie endpointy**: Categories, Incomes, Expenses, Investments, Savings, AI, Prices
+- ✅ **Integracja bazy danych**: SQLAlchemy z PostgreSQL
+- ✅ **Konfiguracja frontendu**: React skonfigurowany do współpracy z API
+- ✅ **Yahoo Finance**: automatyczne aktualizacje cen
+- ✅ **Analiza AI**: analiza portfela i budżetu wraz z kalkulacją VaR
 
 ## 🎯 Następne kroki
 
 1. **Uruchom backend**: `python -m uvicorn main:app --port 8000`
-2. **Uruchom frontend**: `npm run dev -- --port 3000`  
+2. **Uruchom frontend**: `npm run dev -- --port 3000`
 3. **Otwórz aplikację**: http://localhost:3000
-4. **Sprawdź API docs**: http://localhost:8000/docs
+4. **Sprawdź dokumentację API**: http://localhost:8000/docs
 
-Aplikacja Python jest gotowa do użycia z identyczną funkcjonalnością co wersja Node.js, ale z nowoczesną architekturą FastAPI.
+Aplikacja Python jest gotowa do użycia z identyczną funkcjonalnością jak wersja Node.js, lecz z nowoczesną architekturą FastAPI.
+
