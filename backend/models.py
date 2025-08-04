@@ -1,9 +1,10 @@
 """
 SQLAlchemy database models
 """
-from sqlalchemy import Column, String, DateTime, Boolean, Text, Integer
+from sqlalchemy import Column, String, DateTime, Boolean, Text, Integer, ForeignKey
 from sqlalchemy.types import DECIMAL
 from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.orm import relationship
 from datetime import datetime
 import uuid
 from database import Base
@@ -62,3 +63,15 @@ class SavingsGoal(Base):
     color = Column(String(7), nullable=False)  # Hex color code
     is_completed = Column(Boolean, default=False)
     created_at = Column(DateTime, default=datetime.utcnow)
+
+
+class SavingsTransaction(Base):
+    __tablename__ = "savings_transactions"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    savings_goal_id = Column(UUID(as_uuid=True), ForeignKey("savings_goals.id"), nullable=False)
+    amount = Column(DECIMAL(10, 2), nullable=False)
+    date = Column(String(10), nullable=False)  # YYYY-MM-DD format
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    goal = relationship("SavingsGoal", backref="transactions")

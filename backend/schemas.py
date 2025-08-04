@@ -135,6 +135,15 @@ class SavingsGoal(SavingsGoalBase):
 class AddSavingsRequest(CamelModel):
     amount: Decimal = Field(..., gt=0, description="Amount to add to savings goal")
 
+
+class SavingsTransaction(CamelModel):
+    id: UUID
+    savings_goal_id: UUID
+    goal_title: str
+    amount: Decimal
+    date: str
+    created_at: datetime
+
 # AI and analysis schemas
 class RiskAnalysisResponse(CamelModel):
     var_95: float
