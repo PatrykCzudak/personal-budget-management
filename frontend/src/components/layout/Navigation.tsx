@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Settings, CreditCard, PiggyBank, TrendingUp, PieChart } from 'lucide-react';
+import { Settings, CreditCard, PiggyBank, TrendingUp, PieChart, Coins } from 'lucide-react';
 
 const tabs = [
   { id: 'admin', label: 'Admin/Budżet', icon: Settings, path: '/admin' },
@@ -7,6 +7,7 @@ const tabs = [
   { id: 'savings', label: 'Cele Oszczędnościowe', icon: PiggyBank, path: '/savings' },
   { id: 'summary', label: 'Podsumowanie', icon: TrendingUp, path: '/summary' },
   { id: 'investments', label: 'Inwestycje', icon: PieChart, path: '/investments' },
+  { id: 'crypto', label: 'Krypto', icon: Coins, path: '/crypto' },
 ];
 
 export default function Navigation() {
