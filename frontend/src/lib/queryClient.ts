@@ -14,7 +14,9 @@ export async function apiRequest(method: string, url: string, data?: unknown): P
     method,
     headers: data ? { 'Content-Type': 'application/json' } : {},
     body: data ? JSON.stringify(data) : undefined,
-    credentials: 'include',  // jeśli korzystamy z uwierzytelniania przez ciasteczka
+    // Nie dołączaj ciasteczek domyślnie – umożliwia to działanie przy CORS z "*"
+    // Jeśli w przyszłości potrzebne będzie uwierzytelnianie przez cookies,
+    // można dodać "credentials: 'include'" lub przekazać opcje jako parametr.
   });
   await throwIfNotOk(res);
   return res;
@@ -22,7 +24,7 @@ export async function apiRequest(method: string, url: string, data?: unknown): P
 
 // Domyślna funkcja zapytania dla React Query (GET)
 const defaultQueryFn: QueryFunction = async ({ queryKey }) => {
-  const res = await fetch(apiUrl(queryKey.join('/') as string), { credentials: 'include' });
+  const res = await fetch(apiUrl(queryKey.join('/') as string));
   if (res.status === 401) {
     // Obsługa braku autoryzacji - można rozszerzyć
     return Promise.reject(new Error('Unauthorized'));
