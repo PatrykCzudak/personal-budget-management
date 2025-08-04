@@ -1,8 +1,8 @@
-# 🐍 Aplikacja budżetowa w Pythonie (FastAPI)
+# 🐍 Aplikacja budżetowa
 
 ## ✨ Kompletna implementacja
 
-Aplikacja do zarządzania budżetem osobistym przepisana z Node.js/Express na **Python FastAPI**.
+Aplikacja do zarządzania budżetem osobistym w **Python FastAPI**.
 Projekt posiada modułową architekturę oraz całkowicie nowy backend.
 
 ## 🏗️ Architektura backendu
@@ -61,15 +61,15 @@ npm run dev -- --port 3000
 
 ## ⚙️ Kluczowe różnice w porównaniu z Node.js
 
-| Aspekt | Node.js/Express | Python FastAPI |
-|--------|----------------|----------------|
-| **Język** | TypeScript | Python |
-| **Framework** | Express.js | FastAPI |
-| **ORM** | Drizzle | SQLAlchemy |
-| **Walidacja** | Zod | Pydantic |
-| **Struktura** | Monolityczne routy | Modularne routery |
-| **Typowanie** | TypeScript | Wskazówki typów w Pythonie |
-| **Dokumentacja** | Brak | Swagger/OpenAPI |
+| Aspekt | Python FastAPI |
+|--------|----------------|
+| **Język** | Python |
+| **Framework** | FastAPI |
+| **ORM** | SQLAlchemy |
+| **Walidacja** | Pydantic |
+| **Struktura** | Modularne routery |
+| **Typowanie** | Wskazówki typów w Pythonie |
+| **Dokumentacja** | Swagger/OpenAPI |
 
 ## 🔧 Moduły backendu
 
@@ -129,7 +129,7 @@ npm run dev -- --port 3000
 
 ## 🗄️ Baza danych
 
-Wykorzystywana jest ta sama baza PostgreSQL co w wersji Node.js, z automatycznym tworzeniem tabel:
+Baza PostgreSQL z automatycznym tworzeniem tabel:
 
 ```sql
 categories     -- kategorie budżetowe
@@ -166,6 +166,3 @@ Swagger umożliwia testowanie wszystkich endpointów bezpośrednio z przeglądar
 2. **Uruchom frontend**: `npm run dev -- --port 3000`
 3. **Otwórz aplikację**: http://localhost:3000
 4. **Sprawdź dokumentację API**: http://localhost:8000/docs
-
-Aplikacja Python jest gotowa do użycia z identyczną funkcjonalnością jak wersja Node.js, lecz z nowoczesną architekturą FastAPI.
-
