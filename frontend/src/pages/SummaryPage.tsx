@@ -104,15 +104,12 @@ export default function SummaryPage() {
               <div>
                 <p className="text-sm text-muted-foreground">Oszczędności</p>
                 <p className="text-2xl font-bold">{savings.toFixed(2)} zł</p>
-                {totalSavingsAdded > 0 && (
-                  <p className="text-xs text-orange-500">
-                    -{totalSavingsAdded.toFixed(2)} zł przeznaczono do celów
-                  </p>
-                )}
                 {savingsTransactions.length > 0 && (
-                  <p className="text-xs text-muted-foreground">
-                    {savingsTransactions.length} transakcji oszczędnościowych
-                  </p>
+                  savingsTransactions.map(tx => (
+                    <p key={tx.id} className="text-xs text-orange-500">
+                      -{parseFloat(tx.amount).toFixed(2)} zł na {tx.goalTitle}
+                    </p>
+                  ))
                 )}
               </div>
               <div className="bg-purple-100 p-3 rounded-full">

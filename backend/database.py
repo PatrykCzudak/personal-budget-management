@@ -55,7 +55,7 @@ def init_db():
     """Initialize database tables"""
     try:
         # Import all models to ensure they are registered
-        from models import Category, Income, Expense, Investment, SavingsGoal
+        from models import Category, Income, Expense, Investment, SavingsGoal, SavingsTransaction
         
         # Create all tables
         Base.metadata.create_all(bind=engine)

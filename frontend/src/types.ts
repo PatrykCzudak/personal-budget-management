@@ -91,6 +91,7 @@ export interface SavingsGoal {
 export interface SavingsTransaction {
   id: string;
   savingsGoalId: string;
+  goalTitle: string;
   amount: string;
   date: string;
   createdAt?: string;
