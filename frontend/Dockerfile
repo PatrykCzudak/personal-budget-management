@@ -11,8 +11,10 @@ RUN npm ci
 # Kopiuj resztę kodu frontendu
 COPY . .
 
-# W produkcyjnym kontenerze frontend łączy się z usługą backend
-ENV VITE_API_BASE="http://localhost:8000"
+# W produkcyjnym kontenerze frontend łączy się z usługą backend.
+# Używamy nazwy usługi Docker Compose, aby zapewnić prawidłową komunikację
+# między kontenerami, gdy aplikacja jest uruchomiona w środowisku produkcyjnym.
+ENV VITE_API_BASE="http://backend:8000"
 
 # Zbuduj aplikację (plik wyjściowy w /app/dist)
 RUN npm run build
