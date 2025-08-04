@@ -12,7 +12,7 @@ from services.price_service import PriceService
 
 # Make price_service globally available
 price_service = PriceService()
-from routers import categories, incomes, expenses, investments, savings, ai, prices
+from routers import categories, incomes, expenses, investments, savings, ai, prices, crypto
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -70,6 +70,7 @@ app.include_router(investments.router, prefix="/api", tags=["investments"])
 app.include_router(savings.router, prefix="/api", tags=["savings"])
 app.include_router(ai.router, prefix="/api", tags=["ai"])
 app.include_router(prices.router, prefix="/api", tags=["prices"])
+app.include_router(crypto.router, prefix="/api", tags=["crypto"])
 
 # Health check endpoint
 @app.get("/", tags=["health"])

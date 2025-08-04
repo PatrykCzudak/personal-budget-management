@@ -8,6 +8,7 @@ import ExpensesPage from './pages/ExpensesPage';
 import SavingsPage from './pages/SavingsPage';
 import SummaryPage from './pages/SummaryPage';
 import InvestmentsPage from './pages/InvestmentsPage';
+import CryptoPage from './pages/CryptoPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="/savings" element={<SavingsPage />} />
           <Route path="/summary" element={<SummaryPage />} />
           <Route path="/investments" element={<InvestmentsPage />} />
+          <Route path="/crypto" element={<CryptoPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
