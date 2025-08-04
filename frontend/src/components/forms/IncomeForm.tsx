@@ -8,7 +8,7 @@ import { useBudget } from '../../hooks/useBudget';
 import { insertIncomeSchema } from '../../types';
 import type { Income } from '../../types';
 
-type FormData = Omit<Income, 'id' | 'createdAt' | 'date'>;
+type FormData = Omit<Income, 'id' | 'createdAt'>;
 
 interface IncomeFormProps {
   income?: Income | null;
@@ -31,6 +31,7 @@ export default function IncomeForm({ income, onSuccess, onCancel }: IncomeFormPr
       name: income?.name || '',
       amount: income?.amount || '',
       frequency: income?.frequency || 'monthly',
+      date: income?.date || new Date().toISOString().split('T')[0],
     },
   });
 
@@ -72,9 +73,9 @@ export default function IncomeForm({ income, onSuccess, onCancel }: IncomeFormPr
             </FormItem>
           )} 
         />
-        <FormField 
-          control={form.control} 
-          name="frequency" 
+        <FormField
+          control={form.control}
+          name="frequency"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Częstotliwość</FormLabel>
@@ -88,7 +89,18 @@ export default function IncomeForm({ income, onSuccess, onCancel }: IncomeFormPr
               </FormControl>
               <FormMessage />
             </FormItem>
-          )} 
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="date"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Data</FormLabel>
+              <FormControl><Input type="date" {...field} /></FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
         <div className="flex justify-end space-x-2 pt-2">
           <Button type="button" variant="outline" onClick={onCancel}>Anuluj</Button>

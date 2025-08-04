@@ -45,7 +45,7 @@ class IncomeBase(CamelModel):
     name: str
     amount: Decimal
     frequency: str
-    date: str
+    date: Optional[str] = Field(default_factory=lambda: datetime.utcnow().strftime("%Y-%m-%d"))
 
 class IncomeCreate(IncomeBase):
     pass
